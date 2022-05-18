@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -13,20 +12,27 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $css-variables-material-primary: mat.define-palette(mat.$indigo-palette);
-$css-variables-material-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$css-variables-material-accent: mat.define-palette(
+  mat.$pink-palette,
+  A200,
+  A100,
+  A400
+);
 
 // The warn palette is optional (defaults to red).
 $css-variables-material-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$css-variables-material-theme: mat.define-light-theme((
-  color: (
-    primary: $css-variables-material-primary,
-    accent: $css-variables-material-accent,
-    warn: $css-variables-material-warn,
+$css-variables-material-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $css-variables-material-primary,
+      accent: $css-variables-material-accent,
+      warn: $css-variables-material-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -35,5 +41,21 @@ $css-variables-material-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 700px;
+  margin: auto;
+  padding: 30px 20px;
+  box-shadow: -1px 0px 7px 2px rgba(0, 0, 0, 0.2);
+}
