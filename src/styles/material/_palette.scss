@@ -1,10 +1,10 @@
 $my-palette: (
-  50: #f5eaf6,
-  100: #e6cae9,
-  200: #d5a7db,
-  300: #c483cc,
+  50: hsl(var(--hue), var(--saturation), 90%),
+  100: hsl(var(--hue), var(--saturation), 80%),
+  200: hsl(var(--hue), var(--saturation), 70%),
+  300: hsl(var(--hue), var(--saturation), 65%),
   400: #b869c1,
-  500: #ab4eb6,
+  500: hsl(var(--color-primary)),
   600: #a447af,
   700: #9a3da6,
   800: #91359e,
@@ -30,23 +30,6 @@ $my-palette: (
     A700: #000000,
   ),
 );
-
-// :root {
-//   --50: #f5eaf6;
-//   --100: #e6cae9;
-//   --200: #d5a7db;
-//   --300: #c483cc;
-//   --400: #b869c1;
-//   --500: #ab4eb6;
-//   --600: #a447af;
-//   --700: #9a3da6;
-//   --800: #91359e;
-//   --900: #80258e;
-//   --A100: #f8ceff;
-//   --A200: #f19bff;
-//   --A400: #ea68ff;
-//   --A700: #e64eff;
-// }
 
 // $my-palette: (
 //   50: var(--50),

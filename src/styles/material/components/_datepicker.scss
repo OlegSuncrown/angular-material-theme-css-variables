@@ -1,0 +1,57 @@
+@use "sass:color";
+
+// Redefine all classes because of using custom properties
+$range-fade-amount: 0.2;
+$comparison-color: rgba(#f9ab00, $range-fade-amount);
+$overlap-color: #a8dab5;
+$overlap-selected-color: color.adjust($overlap-color, $lightness: -30%);
+$highlighted-cell: hsl(var(--color-primary), 0.3);
+$range-color: hsl(var(--color-primary), $range-fade-amount);
+
+.cdk-keyboard-focused .mat-calendar-body-active,
+.cdk-program-focused .mat-calendar-body-active {
+  & > .mat-calendar-body-cell-content {
+    &:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+      background-color: $highlighted-cell;
+    }
+  }
+}
+
+@media (hover: hover) {
+  .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover {
+    & > .mat-calendar-body-cell-content {
+      &:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+        background-color: $highlighted-cell;
+      }
+    }
+  }
+}
+
+.mat-calendar-body-in-range::before {
+  background-color: $range-color;
+}
+
+.mat-calendar-body-comparison-identical,
+.mat-calendar-body-in-comparison-range::before {
+  background: $comparison-color;
+}
+
+.mat-calendar-body-comparison-bridge-start::before,
+[dir="rtl"] .mat-calendar-body-comparison-bridge-end::before {
+  background: linear-gradient(to right, $range-color 50%, $comparison-color 50%);
+}
+
+.mat-calendar-body-comparison-bridge-end::before,
+[dir="rtl"] .mat-calendar-body-comparison-bridge-start::before {
+  background: linear-gradient(to left, $range-color 50%, $comparison-color 50%);
+}
+
+.mat-calendar-body-in-range > .mat-calendar-body-comparison-identical,
+.mat-calendar-body-in-comparison-range.mat-calendar-body-in-range::after {
+  background: $overlap-color;
+}
+
+.mat-calendar-body-comparison-identical.mat-calendar-body-selected,
+.mat-calendar-body-in-comparison-range > .mat-calendar-body-selected {
+  background: $overlap-selected-color;
+}
